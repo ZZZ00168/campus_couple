@@ -26,5 +26,6 @@ create table user_verify
 (
   user_id int primary key,
   verify_code int not null,
+  fail_count int not null,
   add_time timestamp not null
 )engine=InnoDB default charset=utf8;

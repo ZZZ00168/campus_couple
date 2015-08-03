@@ -139,6 +139,8 @@ class UserVerifyCheck:
         if len(results) != 1:
             return output(421, False)
 
+        user_fail_count = results[0].fail_count
+
         user_id = results[0].user_id
 
         user_verify_code = db.select('user_verify' , vars = {'user_id' : user_id},
@@ -153,9 +155,15 @@ class UserVerifyCheck:
         if user_verify_code.verify_code == input.verify_code:
             return output(200, True)
         else:
-            try:
-                db.delete('user_verify', vars = {'id' : user_id}, where = "user_id=$id")
-            except:
-                return output(700, False)
+            if user_fail_count >= 4:
+                try:
+                    db.delete('user_verify', vars = {'id' : user_id}, where = "user_id=$id")
+                except:
+                    return output(700, False)
+            else :
+                user_fail_count += 1
+                db.update('user_verify' , vars = {'user_id' ,user_id } , where = "user_id=$user_id",
+                          fail_count = user_fail_count)
+
             return output(431, False)
 

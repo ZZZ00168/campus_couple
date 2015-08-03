@@ -39,7 +39,7 @@ def sendVerifyCode(mobile, db = None):
             db.update('user_verify', vars={'id': user_id}, where="user_id=$id",
                       verify_code=verify_code, add_time=None)
         else:
-            db.insert('user_verify', user_id = user_id, verify_code = verify_code, add_time = None)
+            db.insert('user_verify', user_id = user_id, verify_code = verify_code, fail_count = 0 ,add_time = None)
 
         #TODO: send SMS message
         if sendSMSMessage(mobile, verify_code) != 0:
