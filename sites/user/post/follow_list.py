@@ -1,15 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 """
-<<<<<<< HEAD
 author: nango
-
 update_time: 2015/7/30--15:23
-=======
-author: 
-
-update_time: 2015/7/30--13:23
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84
 
 apis:
     /user/post/follow/list
@@ -17,7 +10,6 @@ apis:
 
 import route
 import re
-<<<<<<< HEAD
 import web
 from database import *
 from output import *
@@ -138,10 +130,4 @@ class UserPostFollowList:  # 获取关注用户的文章列表
 
         except:
             return output(700, False)
-=======
 
-@route.route('/user/post/follow/list')
-class UserPostFollowList: #获取关注用户的文章列表
-    def POST(self):
-        pass
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84

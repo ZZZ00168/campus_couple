@@ -8,7 +8,6 @@ update_time: 2015/7/30--13:23
 apis:
     /user/post/campus/update
 """
-<<<<<<< HEAD
 import web
 
 import route
@@ -56,14 +55,3 @@ class UserPostCampusUpdate:  # 查询校区文章更新情况
         else:
              return output(200,True)
 
-
-=======
-
-import route
-import re
-
-@route.route('/user/post/campus/update')
-class UserPostCampusUpdate: #查询校区文章更新情况
-    def POST(self):
-        pass
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84

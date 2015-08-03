@@ -52,19 +52,11 @@ class UserPostCommentList:  # 返回某文章的评论列表
             for i in results:
                 user_commenter = db.select('userinfo',
                                            vars={'commented_id': i.commented_id,
-<<<<<<< HEAD
                                                  'type1': 'nickname', 'type2': 'img_url'},
                                            where='user_id=$commented_id and (type=$type1 or type=$type2)')
                 user_nickname = None
                 user_img_url = None
                 # 将user的昵称和url赋值，如果有为空的，则默认为上的的值。
-=======
-                                                 'type1': 'nickname', 'type2': 'birthday'},
-                                           where='user_id=$commented_id and (type=$type1 or type=$type2)')
-                user_nickname = 'user'
-                user_img_url = None
-                # 将user的昵称和生日赋值，如果有为空的，则默认为上的的值。
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84
                 # 显然这儿是两条记录，一条nickname，一条birthday，故用try包围。
                 # 目的是防止查表两次，这样的话查表一次就行。
                 for j in user_commenter:
@@ -77,7 +69,6 @@ class UserPostCommentList:  # 返回某文章的评论列表
                     except:
                         pass
                 user_mobile = '1234'
-<<<<<<< HEAD
                 if user_nickname == None:  # 加上他的电话后四位。
                     user_mobile = db.select('user', vars={'user_id': i.user_id}, where='user_id=$user_id',
                                             what='mobile')
@@ -88,18 +79,6 @@ class UserPostCommentList:  # 返回某文章的评论列表
                     except:
                         return output(700, False)
                     user_nickname = '用户' + str(user_mobile)
-=======
-                if user_nickname == 'user':  # 加上他的电话后四位。
-                    user_mobile = db.select('user', vars={'user_id': i.user_id}, where='user_id=$user_id',
-                                            what='mobile')
-                    user_nickname = '用户' + str(user_mobile)
-                # 用户电话必定有，否则系统错误。
-                # 截取后四位
-                try:
-                    user_mobile = str(user_mobile[0].mobile)[-4:]
-                except:
-                    return output(700, False)
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84
 
                 # 最后添加进评论列表中
                 comment_list.append({"comment_id": i.comment_id, "user_id": i.user_id,

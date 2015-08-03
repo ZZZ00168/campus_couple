@@ -1,12 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 """
-<<<<<<< HEAD
 author: nango
-=======
-author: 
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84
-
 update_time: 2015/7/30--13:23
 
 apis:
@@ -15,7 +10,6 @@ apis:
 
 import route
 import re
-<<<<<<< HEAD
 import web
 from database import *
 from output import *
@@ -137,10 +131,3 @@ class UserPostCampusList:  # 查询校区文章更新情况
 
         except:
             return output(700, False)
-=======
-
-@route.route('/user/post/campus/list')
-class UserPostCampusList: #查询校区文章更新情况
-    def POST(self):
-        pass
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84
