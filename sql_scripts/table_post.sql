@@ -2,11 +2,6 @@ use campus_couple;
 drop table if exists post;
 create table post(
 	post_id tinyint primary key auto_increment,
-<<<<<<< HEAD
-	add_time TIMEdSTAMP DEFAULT now() ,
-=======
-	add_time TIMESTAMP DEFAULT now() ,
->>>>>>> b478ea35ee4fd0d81a176d47911ab7d4e8e29c84
 	user_id tinyint not null,
 	content varchar(140)
 )engine=InnoDB default charset=utf8;

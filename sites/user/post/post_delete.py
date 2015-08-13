@@ -18,9 +18,9 @@ from verify import *
 @route.route('/user/post/delete')
 class UserPostDelete:
     def POST(self):  # 传入 access_token,user_id,post_id
-        input = web.input(access_token='', user_id=0, post_id=0)
+        input = web.input(access_token=None, user_id=None, post_id=None)
         # 判断参数是否齐全：
-        if input.access_token == '' or input.user_id == 0 or input.post_id == 0:
+        if input.access_token == None or input.user_id == None or input.post_id == None:
             return output(110)  # 缺少必填参数
         # 判断参数类型
         try:
